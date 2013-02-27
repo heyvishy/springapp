@@ -28,12 +28,13 @@ public class InventoryController implements Controller {
         String now = (new java.util.Date()).toString();
         logger.info("returning hello view with " + now);
         
-        
+        String name = this.productManager.getCustomerName();
+        System.out.println("name: "+name);
         
         Map<String, Object> myModel = new HashMap<String, Object>();
         myModel.put("now", now);
         myModel.put("products", this.productManager.getProducts());
-
+        
         return new ModelAndView("hello", "model", myModel);
     }
 

@@ -2,13 +2,24 @@ package springapp.service;
 
 import java.util.List;
 
+import springapp.dao.CustomerDao;
 import springapp.domain.Product;
 
 public class SimpleProductManager implements ProductManager {
 
     private List<Product> products;
     
-    public List<Product> getProducts() {
+    private CustomerDao dao; 
+    
+    public CustomerDao getDao() {
+		return dao;
+	}
+
+	public void setDao(CustomerDao dao) {
+		this.dao = dao;
+	}
+
+	public List<Product> getProducts() {
         return products;
     }
 
@@ -25,5 +36,10 @@ public class SimpleProductManager implements ProductManager {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+	public String getCustomerName() {
+		// TODO Auto-generated method stub
+		return dao.getCustomerName();
+	}
     
 }
