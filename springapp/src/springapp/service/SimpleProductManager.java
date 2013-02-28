@@ -7,6 +7,7 @@ import springapp.domain.Product;
 
 public class SimpleProductManager implements ProductManager {
 
+
     private List<Product> products;
     
     private CustomerDao dao; 
@@ -23,6 +24,10 @@ public class SimpleProductManager implements ProductManager {
         return products;
     }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     public void increasePrice(int percentage) {
         if (products != null) {
             for (Product product : products) {
@@ -33,12 +38,8 @@ public class SimpleProductManager implements ProductManager {
         }
     }
     
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
 
 	public String getCustomerName() {
-		// TODO Auto-generated method stub
 		return dao.getCustomerName();
 	}
     

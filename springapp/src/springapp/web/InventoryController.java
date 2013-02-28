@@ -33,6 +33,7 @@ public class InventoryController implements Controller {
         
         Map<String, Object> myModel = new HashMap<String, Object>();
         myModel.put("now", now);
+        myModel.put("name", name);
         myModel.put("products", this.productManager.getProducts());
         
         return new ModelAndView("hello", "model", myModel);
