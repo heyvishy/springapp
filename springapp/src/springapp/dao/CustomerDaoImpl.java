@@ -3,7 +3,6 @@ package springapp.dao;
 import javax.sql.DataSource;
 
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.support.DaoSupport;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 public class CustomerDaoImpl extends BaseDao implements CustomerDao {
@@ -14,10 +13,10 @@ public class CustomerDaoImpl extends BaseDao implements CustomerDao {
 	public String getCustomerName() throws DataAccessException{
 		String name ="general";
 		
-		String sql = "select Name from Customer where Id=2";
+		String sql = "select LastName from Persons where P_Id=2";
 		SqlRowSet rss = this.getJdbcTemplate().queryForRowSet(sql);
 		while(rss.next()){
-			name = rss.getString("Name");
+			name = rss.getString(1);
 			break;
 		}
 		

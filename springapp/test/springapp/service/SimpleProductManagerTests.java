@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import springapp.domain.Product;
+import springapp.service.impl.SimpleProductManager;
 
 import junit.framework.TestCase;
 

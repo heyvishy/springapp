@@ -10,16 +10,22 @@
     </bean>
 
     <!-- the DataSource (parameterized for configuration via a PropertyPlaceHolderConfigurer) -->
-    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://springapp.cqoauszdwpu6.us-east-1.rds.amazonaws.com:3306/AccountPro"/>
+        <property name="username" value="shukla81"/>
+        <property name="password" value="shanker11"/>
+    </bean>
+
+ <!--  	<bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/AccountPro"/>
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
+ -->    <!-- the application context definition for the springapp DispatcherServlet -->
 
-    <!-- the application context definition for the springapp DispatcherServlet -->
-
-    <bean id="productManager" class="springapp.service.SimpleProductManager" >
+    <bean id="productManager" class="springapp.service.impl.SimpleProductManager" >
         <property name="products">
             <list>
                 <ref bean="product1"/>
@@ -53,7 +59,9 @@
         <property name="productManager" ref="productManager"/>
     </bean>
 	
-	
+	<bean name="/doLogin.htm" class="springapp.web.LoginController">
+    </bean>
+    
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>

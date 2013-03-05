@@ -1,9 +1,10 @@
-package springapp.service;
+package springapp.service.impl;
 
 import java.util.List;
 
 import springapp.dao.CustomerDao;
 import springapp.domain.Product;
+import springapp.service.ProductManager;
 
 public class SimpleProductManager implements ProductManager {
 
